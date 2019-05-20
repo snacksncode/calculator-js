@@ -1,0 +1,129 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono';
+//vars
+$btn-size: 4rem; //scales whole calculator
+$light: #eaeaea;
+$accent: #cf6a6c;
+$bg_d: #222222;
+$bg_2: #fbe3a7; //blue: #71a6d7;
+$bg_1: #e57d98;
+$purple: #542437;
+$black: #343838;
+//css
+* {
+  box-sizing: border-box;
+}
+body {
+  user-select: none;
+	margin: 0; 
+	padding: 0;
+	height: 100vh;
+	display: flex;
+  flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Roboto Mono';
+	font-size: $btn-size;
+	background: linear-gradient(to bottom, $bg_1, $bg_2);
+}
+
+button {
+  width: $btn-size;
+  font-size: $btn-size / 3;
+  height: $btn-size;
+  background: none;
+  font-family: 'Roboto Mono';
+	color: $light;
+	border: none;
+	cursor: pointer;
+	transition: color 300ms ease-in-out;
+	&:hover {
+		color: $bg_2;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+.calculator {
+  position: relative;
+  width: 4 * $btn-size;
+  border-radius: 5px;
+  background: $black;
+  box-shadow: rgba($black, 0.7) 2px 2px 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: 'func oper' 'num oper';
+}
+
+.calc-display {
+  width: 4 * $btn-size;
+  border-radius: 5px;
+  background: $black;
+  box-shadow: rgba($black, 0.7) 2px 2px 15px;
+	padding: $btn-size / 2.5 $btn-size / 3;
+	text-align: right;
+	color: $light;
+	//border-bottom: 3px solid $accent;
+  margin-bottom: 2rem;
+  .current {
+    margin-top: 1rem;
+    font-size: $btn-size / 2;
+  }
+  .entered {
+    color: darken($light, 40);
+    font-size: $btn-size / 4;
+  }
+}
+
+.calc-numbers {
+  grid-area: num;
+	width: 3 * $btn-size;
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+  float: left;
+}
+.calc-functions {
+  grid-area: func;
+  width: 3 * $btn-size;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+  float: left;
+}
+.calc-operations {
+  grid-area: oper;
+  width: $btn-size;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+  float: left;
+}
+
+/* CIRCLE MOD 
+button {
+  border-radius: 50%;
+  width: $btn-size * 0.75;
+  height: $btn-size * 0.75;
+  margin: $btn-size * 0.125;
+  background: $black;
+}
+.calculator {
+  background: none;
+  box-shadow: none;
+}
+.calc-display {
+  box-shadow: none;
+  border-radius: $btn-size;
+  padding: 0rem 2rem 0 0;
+  .entered {
+    margin-top: .5rem;
+  }
+  .current {
+    margin: 0 0 .5rem;
+  }
+}
+*/
