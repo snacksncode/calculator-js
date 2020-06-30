@@ -1,3 +1,4 @@
+let c;
 class Calculator {
   constructor() {
     this.current = 0;
@@ -213,4 +214,4 @@ class Calculator {
     }
   }
 }
-calc = new Calculator();
+c = new Calculator();
